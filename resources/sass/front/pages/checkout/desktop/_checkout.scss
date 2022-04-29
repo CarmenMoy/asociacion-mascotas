@@ -1,0 +1,91 @@
+.checkout{
+    .form-contact{
+        color:hsl(0, 0%, 6%);
+        background-image: none;
+        padding: none;
+        font-weight: bold;
+        font-size: 1.5rem;
+
+        input{
+            width: 95%;
+        }
+
+        .desktop-tres-columnas{
+            margin-top: 1rem;
+        }
+    }
+
+    .subtitulo-resumen{
+        background-color: rgb(247, 177, 241);
+        margin-top: 1rem;
+        text-align: center;
+        margin-left: 3rem;
+        margin-bottom: 3rem;
+
+        h8{
+            font-family: $font-stack;
+            font-size: 3rem;
+        }
+    }
+
+    .resumen-de-producto{
+        font-size: 1rem;
+        margin-left: 4rem;
+
+        .columna{
+            width: 95%;
+            text-align: center;
+            margin-bottom: 3rem;
+
+            .tabla-cesta {
+                margin-bottom: 2rem;
+    
+                input{
+                    width: 10%;
+                }
+            }
+        }
+    }
+
+    .columna-sumatorio{
+        margin-left: 3rem;
+        font-weight: bold;
+        margin-bottom: 3rem;
+        margin-right: 3rem;
+
+        .tabla-sumatorio{
+            width: 90%;
+            text-align: end;
+        }
+    }
+
+    .forma-de-pago{
+        background-color: rgb(240, 209, 233);
+        margin-left: 3rem;
+        font-size: 1.5rem;
+
+        h7{
+            text-decoration: underline hsl(320, 83%, 76%) 3px;
+            font-weight: bold;
+            margin: 1rem;
+        }
+
+        .tabla-forma-de-pago{
+            th{
+                width: 30%;
+                padding: 0.3rem 0.5rem;
+
+                img{
+                    width: 3rem;
+                    height: 2rem;
+                    margin: auto 3rem;
+                }
+            }
+        }
+
+        button{
+            margin: 1rem 50%;
+        }
+    }
+}
+

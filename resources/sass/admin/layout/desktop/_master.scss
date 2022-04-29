@@ -1,0 +1,22 @@
+body{
+    background-color: hsl(300, 9%, 98%);
+    @include display-secundario;
+    margin: 1em auto;
+    min-height: 100vh;
+    width: 90%;
+}
+
+
+main{
+    margin: 1em 0;
+    padding: 1em;
+}
+
+.desktop-only{
+    display: revert;
+}
+
+.mobile-only{
+    display: none;
+}
+

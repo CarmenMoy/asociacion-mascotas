@@ -1,0 +1,160 @@
+.ficha{
+    @include display-secundario;
+    width: 100%;
+    margin: 0;
+
+    .desktop-dos-columnas{
+        @include display-secundario;
+        width: 100%;
+        margin-top: 1rem;
+
+        .columna{
+            width: 100%;
+
+            .foto-ficha{
+                margin: 0;
+            }
+        
+            .subfotos-ficha{
+                width: 100%;
+                @include display-principal;
+                margin: 0;
+        
+                .subfoto-imagen{
+                    width: 18%;
+                    margin: 1%;
+                }
+            }
+        
+            .coste{
+                width: 100%;
+                @include display-principal;
+                margin-bottom: 3rem;
+        
+                h3{
+                    font-size: 2rem;
+                    color: $primer-color;
+                    margin: auto;
+                    width: 30%;
+                }
+        
+                span{
+                    background-color: hsl(319, 65%, 83%);
+                    font-size: 1rem;
+                    width: 65%;
+                }
+            }
+        
+            .descripcion{
+                border: solid;
+                border-color: $primer-color;
+                padding: 1rem;
+                font-weight: bold;
+                font-size: 1.1rem;
+                margin-bottom: 0;
+                background-color: pink;
+
+                .tabs{
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    color:black;
+                    background: $primer-color;
+                    text-align: center;
+
+                    &-item{
+                        padding: 3px 5px;
+                        border-left: 4px solid $primer-color;
+                        cursor: pointer;
+
+                        &:first-child{
+                            border-left: none;
+                        }
+
+                        &.active{
+                            background: pink;
+                            border-left: 4px solid $primer-color;
+                        }
+                    }
+                }
+
+                .content{
+                    color: black;
+                    padding: 20px;
+
+                    &-item{
+                        position: absolute;
+                        left: -5000px;
+
+                        &.active{
+                            position: relative;
+                            left: 0;
+                        }
+                    }
+                }
+
+                iframe{
+                    width: 15rem;
+                    height: 10rem;
+                    margin: auto;
+                }
+            }
+        
+            .cantidad{
+                width: 100%;
+                @include display-secundario;
+        
+                span{
+                    font-size: 0.8rem;
+                    font-weight: bold;
+                    margin: 0;
+                    text-align: justify;
+                }
+        
+                .cantidad-acogida{
+                    display: flex;
+                    flex-direction: inline;
+                    margin: 1rem;
+        
+                    .titulo-cantidad-acogida{
+                        width: 70%;
+                        margin-top: 3%;
+                    }
+        
+                    .botones-cantidad{
+                        margin: 0;
+                        width: 100%;
+        
+                        input{
+                            width: 15%;
+                            margin-bottom: 2rem;
+                        }
+                    }
+                }
+            }
+        
+            .botones-adopcion-acogida{
+                @include display-principal;
+                margin-bottom: 3rem;
+        
+                button{
+                    margin-left: 0.1rem;
+                    height: 3rem;
+                    width: 10rem;
+                    font-weight: bold;
+                }
+        
+                .boton-acogida button{
+                    background-color: hsl(308, 82%, 85%);
+                }
+        
+                .boton-adopcion button{
+                    background-color:  $tercer-color;
+                }
+            }
+        }
+    }   
+}
+

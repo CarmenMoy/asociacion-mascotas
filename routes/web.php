@@ -14,5 +14,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.pages.home.index');
+});
+
+Route::get('/contacto', function () {
+    return view('front.pages.contacto.index');
+});
+
+Route::get('/cesta', function () {
+    return view('front.pages.cesta.index');
+});
+
+Route::get('/checkout', function () {
+    return view('front.pages.checkout.index');
+});
+
+Route::get('/ficha', function () {
+    return view('front.pages.ficha.index');
+});
+
+Route::get('/gatos', function () {
+    return view('front.pages.gatos.index');
+});
+
+Route::get('/admin/usuarios', function () {
+    return view('admin.pages.usuarios.index');
 });

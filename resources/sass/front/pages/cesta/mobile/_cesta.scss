@@ -1,0 +1,75 @@
+.cesta{
+    .tabla-cesta{
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        border: solid;
+
+        th{
+            background-color: rgb(248, 207, 240);
+            padding: 1rem;
+            font-size: 0.6rem;
+            font-weight: bold;
+        }
+
+        td{
+            color: $primer-color;
+            font-weight: bold;
+            font-size: 0.6rem;
+            width: 20%;
+
+            input{
+                width: 10%;
+            }
+        }
+    }
+
+    .desktop-dos-columnas-inline{
+        .columna-imagen{
+            margin-left: 0.5rem;
+        }
+
+        .columna-sumatorio{
+            width: 100%;
+            margin-right: 1rem;
+            margin-top: 3rem;
+            font-weight: bold;
+            font-size: 0.5rem;
+
+            .total{
+                color: $primer-color;
+            }
+
+            th{
+                text-align: left;
+            }
+
+            td{
+                width: 10%;
+                text-align: right;
+            }
+        }
+    }
+
+    .botones{
+        width: 100%;
+        margin: 2rem;
+        display: flex;
+        font-size: 2rem;
+
+        button{
+            background-color:  $tercer-color;
+            height: 3rem;
+            width: 80%;
+            margin: auto 1rem;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .boton-pagar{
+            margin-top: 0.5rem;
+        }
+    }
+}
+
+

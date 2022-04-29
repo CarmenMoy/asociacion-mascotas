@@ -1,0 +1,109 @@
+.checkout{
+    .desktop-dos-columnas{
+        @include display-secundario;
+        width: 100%;
+
+        .columna{
+            width: 100%;
+
+            .form-contact{
+                color:hsl(0, 0%, 6%);
+                background-image: none;
+                padding: none;
+                font-weight: bold;
+                font-size: 1.5rem;
+        
+                .contact-form-input{
+                    input{
+                        margin-bottom: 0;
+                        width: 95%;
+                    }
+                }
+            }
+        
+            .subtitulo-resumen{
+                background-color: rgb(247, 177, 241);
+                margin-top: 1.5rem;
+                text-align: center;
+                margin-left: 0;
+                margin-bottom: 1rem;
+        
+                h8{
+                    font-family: $font-stack;
+                    font-size: 2rem;
+                }
+            }
+        
+            .resumen-de-producto{
+                font-size: 0.6rem;
+
+                .columna{
+                    width: 95%;
+                    text-align: center;
+
+                    .tabla-cesta {
+                        margin-bottom: 1rem;
+
+
+                        th{
+                            padding: 0.1rem;
+                            font-size: 0.6rem;
+                        }
+                
+                        td{
+                            font-size: 1rem;
+                        }
+
+                        input{
+                            width: 10%;
+                        }
+                    }
+                }
+            }
+        
+            .columna-sumatorio{
+                margin-left: 0;
+                font-weight: bold;
+                margin-bottom: 3rem;
+
+                .tabla-sumatorio{
+                    width: 90%;
+                    text-align: end;
+                }
+            }
+        
+            .forma-de-pago{
+                background-color: rgb(240, 209, 233);
+                margin-left: 0;
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+        
+                h7{
+                    text-decoration: underline hsl(320, 83%, 76%) 3px;
+                    font-weight: bold;
+                    margin: 1rem;
+                }
+        
+                .tabla-forma-de-pago{
+                    th{
+                        width: 30%;
+                        padding: 0.1rem;
+                        margin: 0;
+        
+                        img{
+                            width: 3rem;
+                            height: 2rem;
+                            margin: auto 3rem;
+                        }
+                    }
+                }
+        
+                button{
+                    margin: 1rem 50%;
+                }
+            }
+        }
+    }  
+}
+
+

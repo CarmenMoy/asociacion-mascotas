@@ -1,0 +1,81 @@
+.home{
+    .subtitulo{
+        margin-bottom: 1rem;
+
+        h2{
+            font-size: 1.2em;
+            text-shadow: none;
+            margin: 0;
+        }
+    }
+
+    .animales{
+        @include display-secundario;
+    
+        .animal{
+            width: 100%;
+            @include display-principal;
+            margin-bottom: 0.2em;
+
+            .animal-imagen{
+                width: 30%;
+            }
+
+            .animal-titulo{
+                width: 20%;
+                font-size: 0.5em;
+                margin: 0.5em 0;
+    
+                h3{
+                    color: $primer-color;
+                    font-size: 1.5em;
+                    text-align: center;
+                }
+            }
+
+            .animal-descripcion{
+                width: 50%;
+                font-size: 0.8em;
+                background-color: rgb(114, 163, 219);
+            }
+        }
+    }
+
+    .contact{
+        @include display-principal;
+        margin: 1em 0;
+        padding: 1em 0;
+        border-top: 1px solid #241a1a;
+        border-bottom: 1px solid #241a1a;
+    
+        .contact-form{
+            width: 50%;
+            font-size: 0.9em;
+    
+            .contact-suscription-form{
+                background-color: hsl(27, 79%, 65%);
+    
+                .contact-form-input{
+                    width: 100%;
+    
+                    input{
+                        width: 90%;
+                    }
+                }
+            }
+        }
+    
+        .contact-image{
+            width: 40%;
+            margin-top: 10%;
+    
+            img{
+                border-radius: 50%;
+                box-shadow: 5px 5px 15px 5px #241a1a;
+            }
+        }
+    }
+
+}
+
+

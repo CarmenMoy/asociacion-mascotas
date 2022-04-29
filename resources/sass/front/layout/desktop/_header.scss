@@ -1,0 +1,43 @@
+
+header{
+    background-color: rgb(69, 124, 226);
+    margin: 1em 0;
+    padding: 1em;
+    height: 10v;
+    @include display-principal;
+
+
+    .logo-titulo{
+        display: flex;
+        justify-self: start;
+
+        .logo{
+            width: max-content;
+
+            svg{
+                height: 13em;
+                width: 13em;
+
+                g{
+                    fill: black;
+                }
+            }
+        }
+
+        .titulo{
+            margin: auto 0;
+        }
+    }
+
+    .menu{
+        margin: auto 0;
+
+        li{
+            display: inline;
+            font-size: 1.5em;
+            font-weight: 300;
+            background-color: $cuarto-color;
+        }
+    }
+}
+

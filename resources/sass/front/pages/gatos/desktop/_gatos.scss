@@ -1,0 +1,43 @@
+.galeria{
+    .categoria-galeria li{
+        color: $primer-color;
+        font-size: 2rem;
+        text-align: center;
+        border: solid;
+        border-radius: 3%;
+    }
+
+    .columna-main-galeria{
+        .selector{
+            background-color: $tercer-color;
+            padding: 0.5rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            @include display-principal;
+            margin-bottom: 2rem;
+            text-align: center;
+
+            span{
+                font-size: 1.5rem;
+            }
+        }
+
+        .galeria-animal{
+            .animal{
+                margin-bottom: 2rem;
+                text-align: center;
+                width: 30%;
+
+                h3{
+                    font-size: 2rem;
+                    color: $primer-color;
+                }
+
+                p{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+

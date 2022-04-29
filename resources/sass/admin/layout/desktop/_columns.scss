@@ -1,0 +1,20 @@
+.desktop-dos-columnas{
+    @include display-principal;
+    width: 100%;
+
+    .columna{
+        width: 48%;
+    }
+}
+
+.desktop-una-columna{
+    width: 100%;
+    margin-top: 1rem;
+
+    .columna{
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
+
+

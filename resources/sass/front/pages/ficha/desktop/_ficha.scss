@@ -1,0 +1,109 @@
+.ficha{
+    .foto-ficha{
+        margin-top: 0.5rem;
+    }
+
+    .subfotos-ficha{
+        width: 100%;
+        @include display-principal;
+        margin-top: 5rem;
+
+        .subfoto-imagen{
+            width: 18%;
+            margin: 1%;
+        }
+    }
+
+    .coste{
+        width: 100%;
+        @include display-principal;
+        margin-bottom: 3rem;
+
+        h3{
+            font-size: 4rem;
+            color: $primer-color;
+            margin-left: 3rem;
+            width: 30%;
+        }
+
+        span{
+            background-color: hsl(319, 65%, 83%);
+            font-size: 1.5rem;
+            width: 65%;
+        }
+    }
+
+    .descripcion{
+        border: solid;
+        border-color: $primer-color;
+        padding: 2rem;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+
+        h7{
+            font-size: 1.3rem;
+            text-decoration: underline wavy hsl(320, 83%, 76%) 3px;
+        }
+
+        p{
+            margin: 1rem 0;
+            text-align: justify;
+        }
+
+        .video-descripcion{
+            margin: 2rem;
+        }
+    }
+
+    .cantidad{
+        display: inline;
+
+        span{
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 2rem;
+            text-align: justify;
+        }
+
+        .cantidad-acogida{
+            display: flex;
+            flex-direction: inline;
+            margin: 1rem;
+
+            .titulo-cantidad-acogida{
+                width: 70%;
+                margin-top: 3%;
+            }
+
+            .botones-cantidad{
+                margin: 1rem;
+
+                input{
+                    width: 15%;
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+    }
+
+    .botones-adopcion-acogida{
+        @include display-principal;
+
+        button{
+            margin-left: 5rem;
+            height: 3rem;
+            width: 10rem;
+            font-weight: bold;
+        }
+
+        .boton-acogida button{
+            background-color: hsl(308, 82%, 85%);
+        }
+
+        .boton-adopcion button{
+            background-color:  $tercer-color;
+        }
+    }
+}
+

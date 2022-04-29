@@ -1,0 +1,13 @@
+.subtitulo{
+    background-color: $segundo-color;
+    font-family: $font-stack;
+    margin-top: .5em;
+    padding: 0.2em 0;
+    width: 100%;
+    margin-bottom: 3rem;
+
+    h2{
+        text-align: center;
+        text-shadow: 3px 3px 0px rgba(150, 150, 150, 1);
+    }
+}

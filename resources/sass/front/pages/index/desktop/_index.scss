@@ -1,0 +1,50 @@
+.home{
+    .animales{
+        @include display-principal;
+    
+        .animal{
+            width: 25%;
+    
+            .animal-titulo{
+                margin: 0.5em 0;
+    
+                h3{
+                    color: $primer-color;
+                    font-size: 1.5em;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .contact{
+        @include display-principal;
+        margin-top: 5em;
+    
+        .contact-form{
+            width: 50%;
+    
+            .contact-suscription-form{
+                background-color: hsl(27, 79%, 65%);
+    
+                .contact-form-input{
+                    width: 100%;
+    
+                    input{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    
+        .contact-image{
+            width: 40%;
+    
+            img{
+                border-radius: 50%;
+                box-shadow: 5px 5px 15px 5px #241a1a;
+            }
+        }
+    }  
+}
+

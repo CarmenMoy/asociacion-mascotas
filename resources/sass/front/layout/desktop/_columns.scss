@@ -1,0 +1,66 @@
+.desktop-cuatro-columnas{
+    @include display-principal;
+    width: 100%;
+
+    .columna{
+        width: 22%;
+    }
+}
+
+.desktop-tres-columnas{
+    @include display-principal;
+    width: 100%;
+
+    .columna{
+        width: 30%;
+    }
+}
+
+.desktop-dos-columnas{
+    @include display-principal;
+    width: 100%;
+
+    .columna{
+        width: 48%;
+    }
+}
+
+
+.desktop-dos-columnas-aside{
+    @include display-principal;
+    width: 100%;
+
+    .columna-aside{
+        width: 20%;
+    }
+
+    .columna-main{
+        width: 75%;
+    }
+}
+
+.desktop-dos-columnas-inline{
+    @include display-principal;
+    width: 100%;
+
+    .columna{
+        width: 48%;
+
+        div{
+            display: flex;
+            margin-right: 1em;
+        }
+    }
+}
+
+.desktop-una-columna{
+    width: 100%;
+    margin-top: 1rem;
+
+    .columna{
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
+
+
