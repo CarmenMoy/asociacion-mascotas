@@ -512,8 +512,8 @@ header #menu.active {
   margin-top: 2rem;
 }
 .admin-usuarios svg {
-  width: 2rem;
-  height: 2rem;
+  width: 1, 5rem;
+  height: 1, 5rem;
 }
 .admin-usuarios .desktop-dos-columnas {
   width: 100%;
@@ -525,19 +525,29 @@ header #menu.active {
   display: flex;
   flex-direction: column;
   margin-left: 3rem;
+  margin-right: 3rem;
 }
 .admin-usuarios .desktop-dos-columnas .columna .table-row {
   display: flex;
   justify-content: space-between;
-  color: hsl(194deg, 76%, 65%);
   font-weight: bold;
   width: 100%;
 }
+.admin-usuarios .desktop-dos-columnas .columna .table-row .table-field-container {
+  width: 70%;
+}
+.admin-usuarios .desktop-dos-columnas .columna .table-row .table-field-container span {
+  color: hsl(194deg, 76%, 65%);
+}
 .admin-usuarios .desktop-dos-columnas .columna .table-row .table-icons-container {
+  width: 30%;
   display: flex;
   flex-direction: inline;
-  margin: auto;
-  margin-left: 10rem;
+  position: right;
+}
+.admin-usuarios .desktop-dos-columnas .columna .table-row .table-icons-container svg {
+  width: 1, 5rem;
+  height: 1, 5rem;
 }
 .admin-usuarios .desktop-dos-columnas .columna .tabs-container {
   width: 100%;
@@ -546,9 +556,12 @@ header #menu.active {
   margin: auto;
   font-size: 2rem;
 }
+.admin-usuarios .desktop-dos-columnas .columna .tabs-container svg {
+  width: 1, 5rem;
+  height: 1, 5rem;
+}
 .admin-usuarios .desktop-dos-columnas .columna .tabs-container #tabs {
   width: 70%;
-  margin: left;
 }
 .admin-usuarios .desktop-dos-columnas .columna .tabs-container #tabs li {
   display: inline;
@@ -556,7 +569,6 @@ header #menu.active {
   margin-left: 0, 5rem;
 }
 .admin-usuarios .desktop-dos-columnas .columna .tabs-container .icons {
-  width: 30%;
   margin: auto;
 }
 .admin-usuarios .desktop-dos-columnas .columna .tabs {
@@ -583,7 +595,6 @@ header #menu.active {
 }
 .admin-usuarios .desktop-dos-columnas .columna .content {
   color: black;
-  padding: 20px;
 }
 .admin-usuarios .desktop-dos-columnas .columna .content-item {
   position: absolute;
@@ -596,7 +607,6 @@ header #menu.active {
 .admin-usuarios .desktop-dos-columnas .columna #contact-form {
   width: 100%;
   color: hsl(0deg, 0%, 6%);
-  background-image: url("/images/fondo gaticos.jpg");
   padding: 0.8rem;
   font-weight: bold;
   font-size: 1.5rem;
@@ -621,5 +631,6 @@ header #menu.active {
 }
 .admin-usuarios .desktop-dos-columnas .columna #contact-form .contact-form-input input {
   margin-bottom: 2rem;
-  width: 100%;
+  width: 10rem;
+  height: 3rem;
 }

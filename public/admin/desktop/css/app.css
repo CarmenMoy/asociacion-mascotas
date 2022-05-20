@@ -497,116 +497,186 @@ header #menu.active {
 
 .admin-usuarios {
   margin-top: 2rem;
+  background-color: hsl(60deg, 31%, 90%);
 }
 .admin-usuarios svg {
-  width: 2rem;
-  height: 2rem;
+  width: 2.3rem;
+  height: 2.3rem;
 }
 .admin-usuarios .desktop-dos-columnas {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.admin-usuarios .desktop-dos-columnas .columna {
-  width: 50%;
+.admin-usuarios .desktop-dos-columnas .columna-uno {
+  width: 40%;
   display: flex;
   flex-direction: column;
-  margin-left: 3rem;
 }
-.admin-usuarios .desktop-dos-columnas .columna .table-row {
-  display: flex;
-  justify-content: space-between;
-  color: hsl(194deg, 76%, 65%);
-  font-weight: bold;
+.admin-usuarios .desktop-dos-columnas .columna-uno #table-container {
   width: 100%;
 }
-.admin-usuarios .desktop-dos-columnas .columna .table-row .table-icons-container {
+.admin-usuarios .desktop-dos-columnas .columna-uno #table-container .table-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: solid hsl(199deg, 67%, 80%);
+  margin-right: 1.5rem;
+  padding: 0.5rem;
+}
+.admin-usuarios .desktop-dos-columnas .columna-uno #table-container .table-row .table-field-container {
+  width: 70%;
+}
+.admin-usuarios .desktop-dos-columnas .columna-uno #table-container .table-row .table-field-container span {
+  color: hsl(239deg, 85%, 55%);
+}
+.admin-usuarios .desktop-dos-columnas .columna-uno #table-container .table-row .table-icons-container {
+  width: 30%;
   display: flex;
   flex-direction: inline;
-  margin: auto;
-  margin-left: 10rem;
+  padding: auto;
 }
-.admin-usuarios .desktop-dos-columnas .columna .tabs-container {
+.admin-usuarios .desktop-dos-columnas .columna-uno #table-container .table-row .table-icons-container .table-icons {
+  width: 50%;
+  margin: auto;
+}
+.admin-usuarios .desktop-dos-columnas .columna-uno #table-container .table-row .table-icons-container .table-icons svg {
+  margin: auto;
+  fill: hsl(239deg, 85%, 55%);
+}
+.admin-usuarios .desktop-dos-columnas .columna-dos {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(250, 250, 250);
+}
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin: auto;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  height: 4.5rem;
 }
-.admin-usuarios .desktop-dos-columnas .columna .tabs-container #tabs {
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container #tabs {
   width: 70%;
-  margin: left;
 }
-.admin-usuarios .desktop-dos-columnas .columna .tabs-container #tabs li {
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container #tabs li {
   display: inline;
   margin: auto;
   margin-left: 0, 5rem;
 }
-.admin-usuarios .desktop-dos-columnas .columna .tabs-container .icons {
-  width: 30%;
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container .icons {
   margin: auto;
+  display: flex;
+  flex-direction: inline;
+  margin: auto;
+  width: 40%;
 }
-.admin-usuarios .desktop-dos-columnas .columna .tabs {
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container .icons svg {
+  fill: blue;
+  margin: auto 0;
+  width: 30%;
+}
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container .icons .switch-button {
+  margin: auto 0;
+}
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container .icons .switch-button #switch {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container .icons .switch-button #switch:checked + label {
+  background: #bada55;
+}
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container .icons .switch-button #switch:checked + label::after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container .icons .switch-button #switch-label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 80px;
+  height: 40px;
+  background: rgb(221, 12, 12);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container .icons .switch-button #switch-label::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
-  color: black;
-  background: hsl(318deg, 71%, 40%);
+  color: rgb(252, 247, 247);
+  background: blue;
   text-align: center;
 }
-.admin-usuarios .desktop-dos-columnas .columna .tabs-item {
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-item {
   padding: 3px 5px;
-  border-left: 4px solid hsl(318deg, 71%, 40%);
+  border-left: 4px solid blue;
   cursor: pointer;
 }
-.admin-usuarios .desktop-dos-columnas .columna .tabs-item:first-child {
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-item:first-child {
   border-left: none;
 }
-.admin-usuarios .desktop-dos-columnas .columna .tabs-item.active {
-  background: pink;
-  border-left: 4px solid hsl(318deg, 71%, 40%);
+.admin-usuarios .desktop-dos-columnas .columna-dos .tabs-item.active {
+  background: rgb(192, 237, 255);
+  border-left: 4px solid blue;
+  color: hsl(0deg, 0%, 6%);
 }
-.admin-usuarios .desktop-dos-columnas .columna .content {
+.admin-usuarios .desktop-dos-columnas .columna-dos .content {
   color: black;
-  padding: 20px;
 }
-.admin-usuarios .desktop-dos-columnas .columna .content-item {
+.admin-usuarios .desktop-dos-columnas .columna-dos .content-item {
   position: absolute;
   left: -5000px;
 }
-.admin-usuarios .desktop-dos-columnas .columna .content-item.active {
+.admin-usuarios .desktop-dos-columnas .columna-dos .content-item.active {
   position: relative;
   left: 0;
 }
-.admin-usuarios .desktop-dos-columnas .columna #contact-form {
+.admin-usuarios .desktop-dos-columnas .columna-dos #contact-form {
   width: 100%;
   color: hsl(0deg, 0%, 6%);
-  background-image: url("/images/fondo gaticos.jpg");
   padding: 0.8rem;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
 }
-.admin-usuarios .desktop-dos-columnas .columna #contact-form .desktop-dos-columnas {
+.admin-usuarios .desktop-dos-columnas .columna-dos #contact-form .desktop-dos-columnas {
   width: 100%;
 }
-.admin-usuarios .desktop-dos-columnas .columna #contact-form .desktop-dos-columnas .columna {
+.admin-usuarios .desktop-dos-columnas .columna-dos #contact-form .desktop-dos-columnas .columna {
   width: 50%;
 }
-.admin-usuarios .desktop-dos-columnas .columna #contact-form .desktop-una-columna .columna {
-  width: 100%;
-}
-.admin-usuarios .desktop-dos-columnas .columna #contact-form .desktop-una-columna .columna textarea {
-  width: 100%;
-  height: 10rem;
-}
-.admin-usuarios .desktop-dos-columnas .columna #contact-form .contact-form-label {
+.admin-usuarios .desktop-dos-columnas .columna-dos #contact-form .desktop-dos-columnas .columna .contact-form-label {
   margin-bottom: 0.5rem;
 }
-.admin-usuarios .desktop-dos-columnas .columna #contact-form .contact-form-input input {
+.admin-usuarios .desktop-dos-columnas .columna-dos #contact-form .desktop-dos-columnas .columna .contact-form-input input {
   margin-bottom: 2rem;
-  width: 100%;
+  width: 90%;
+  height: 2rem;
+}
+.admin-usuarios .desktop-dos-columnas .columna-dos #contact-form .columna-textarea {
+  width: 90%;
+  margin-left: 0.5rem;
+}
+.admin-usuarios .desktop-dos-columnas .columna-dos #contact-form .columna-textarea textarea {
+  width: 80%;
+  height: 10rem;
 }
