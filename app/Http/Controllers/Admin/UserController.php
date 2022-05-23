@@ -98,7 +98,7 @@ class UserController extends Controller
 
         $view = View::make('admin.pages.usuarios.index')
                 ->with('user', $this->user)
-                ->with('users', $this->user->get());
+                ->with('users', $this->user->where('active', 1)->get());
 
         if(request()->ajax()) {
             
@@ -115,10 +115,24 @@ class UserController extends Controller
 
     public function create()
     {
+        /*
+            En la siguientes líneas estamos creando una variable que se llama view, y que tiene como valor el objeto View.
+            El objeto View medienta un método estático está creando la vista 'admin.pages.usuarios.create' que es la que se
+            mostrará en pantalla. Con 'with' le estamos diciendo que le pase la variable 'user' y que su valor sea el objeto
+            modelo User, que como no estamos haciendo ninguna llamada a la base de datos nos devolverá los campos vacíos de la tabla.
+            Por último, renderSections() lo que está haciendo es recargar las sections que tiene la vista (en este caso 'form' y 'table')
+            con los datos procesados. 
+        */
 
-       $view = View::make('admin.users.index')
-        ->with('user', $sthis->uer)
+       $view = View::make('admin.pages.usuarios.index')
+        ->with('user', $this->user)
         ->renderSections();
+
+        /*
+            En la siguiente línea estamos devolviendo una respuesta a la petición AJAX, una petición AJAX hará que una parte de la página
+            se actualice sin necesidad de recargar toda la página. En este caso, la parte que se actualizará es la parte del formulario. Para
+            ello estamos diciendo que la palabra "form" será equivalente a $view['form'], la cual contiene el html del formulario ya actualizado.
+        */
 
         return response()->json([
             'form' => $view['form']
@@ -127,8 +141,23 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {            
-        
+        /*
+            Lo primero que hemos hecho es por inyección de dependencias pasarle el validador a los datos capturados. 
+
+            Podemos capturar el valor de un input mediante request, por ejemplo, si queremos capturar el valor de un input
+            que tenía como atributo name="password" podemos hacerlo escribiendo: request('password');
+
+            A continuación, en este caso, vamos comprobar si el input con el name password tiene un valor. Si 
+        */
+
         if (request('password') !== null) {
+
+            /*
+                En la siguiente línea vamos a guardar los datos en la base de datos. Usaremos el método store tanto para
+                guardar como para actualizar los datos, esto es gracias a un método de los modelos (en este caso el modelo User que 
+                es $this->user) llamado updateOrCreate. Updateorcreate comprobará si el usuario existe en la base de datos, si existe
+                actualizará los datos, si no existe creará un nuevo registro, esto lo hará mediante el campo id.  
+            */
 
             $user = $this->user->updateOrCreate([
                 'id' => request('id')],[
@@ -148,21 +177,20 @@ class UserController extends Controller
             ]);
         }
 
-        $view = View::make('admin.users.index')
+        $view = View::make('admin.pages.usuarios.index')
         ->with('users', $this->user->where('active', 1)->get())
-        ->with('user', $user)
+        ->with('user', $this->user)
         ->renderSections();        
 
         return response()->json([
             'table' => $view['table'],
-            'form' => $view['form'],
-            'id' => $user->id,
+            'form' => $view['form']
         ]);
     }
 
     public function edit(User $user)
     {
-        $view = View::make('admin.users.index')
+        $view = View::make('admin.pages.usuarios.index')
         ->with('user', $user)
         ->with('users', $this->user->where('active', 1)->get());   
         
@@ -187,7 +215,7 @@ class UserController extends Controller
         $user->active = 0;
         $user->save();
 
-        $view = View::make('admin.users.index')
+        $view = View::make('admin.pages.usuarios.index')
             ->with('user', $this->user)
             ->with('users', $this->user->where('active', 1)->get())
             ->renderSections();

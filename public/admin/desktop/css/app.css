@@ -574,9 +574,10 @@ header #menu.active {
   width: 40%;
 }
 .admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container .icons svg {
+  cursor: pointer;
   fill: blue;
   margin: auto 0;
-  width: 30%;
+  width: 3rem;
 }
 .admin-usuarios .desktop-dos-columnas .columna-dos .tabs-container .icons .switch-button {
   margin: auto 0;

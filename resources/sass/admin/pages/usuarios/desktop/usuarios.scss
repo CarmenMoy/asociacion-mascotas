@@ -87,10 +87,12 @@
                     margin: auto;
                     width: 40%;
 
+
                     svg{
+                        cursor: pointer;
                         fill: blue;
                         margin: auto 0;
-                        width: 30%;
+                        width: 3rem;
                     }
 
                     .switch-button{
