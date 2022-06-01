@@ -188,12 +188,27 @@ class UserController extends Controller
         ]);
     }
 
+    /*
+        En la siguiente línea estamos cargando en la variable $user los datos de un registro concreto de nuestra
+        tabla. 
+
+        Cuando en la vista hemos escrito route('users_edit', ['user' => $user_element->id]) estamos creando un enlace
+        personalizado para cada registro pasándole la id al parametro 'user' de la ruta. 
+
+        Laravel gracias al parámentro localiza el registro en la tabla, y ahora la variable $user contiene los datos del
+        usuario que hemos seleccionado.
+    */
     public function edit(User $user)
     {
         $view = View::make('admin.pages.usuarios.index')
         ->with('user', $user)
         ->with('users', $this->user->where('active', 1)->get());   
         
+        /*
+            Si el método edit ha sido llamado a través de javascript (AJAX) entonces se ejecutará 
+            las siguientes líneas. Esto volverá a renderizar la vista con los datos del usuario que hemos seleccionado.
+            y devolverá una respuesta a la petición AJAX con todo el código de la sección formulario. 
+        */ 
         if(request()->ajax()) {
 
             $sections = $view->renderSections(); 

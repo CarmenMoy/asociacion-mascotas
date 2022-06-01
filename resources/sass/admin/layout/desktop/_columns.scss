@@ -1,5 +1,7 @@
 .desktop-dos-columnas{
+
     @include display-principal;
+    
     width: 100%;
 
     .columna{
@@ -8,6 +10,7 @@
 }
 
 .desktop-una-columna{
+
     width: 100%;
     margin-top: 1rem;
 

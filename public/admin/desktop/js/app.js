@@ -2310,6 +2310,10 @@ var renderForm = function renderForm() {
   var storeButton = document.querySelector('.store-button');
   var createButton = document.querySelector('.create-button');
   var forms = document.querySelectorAll('.admin-form');
+  document.addEventListener("loadForm", function (event) {
+    console.log(event.detail.form);
+    formContainer.innerHTML = event.detail.form;
+  });
   document.addEventListener("renderFormModules", function (event) {
     renderForm();
   }, {
@@ -2444,8 +2448,7 @@ var renderForm = function renderForm() {
                           table: json.table
                         }
                       }));
-                      document.dispatchEvent(new CustomEvent('renderFormModules'));
-                      document.dispatchEvent(new CustomEvent('renderTableModules')); // document.dispatchEvent(new CustomEvent('stopWait'));
+                      document.dispatchEvent(new CustomEvent('renderFormModules')); // document.dispatchEvent(new CustomEvent('stopWait'));
                       // document.dispatchEvent(new CustomEvent('stopOverlay'));
                       // document.dispatchEvent(new CustomEvent('message', {
                       //     detail: {
@@ -2531,6 +2534,141 @@ var renderMenu = function renderMenu() {
   menuButton.addEventListener("click", function () {
     menuButton.classList.toggle("active");
     menu.classList.toggle("active");
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/desktop/modalDelete.js":
+/*!***************************************************!*\
+  !*** ./resources/js/admin/desktop/modalDelete.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderModalDelete": () => (/* binding */ renderModalDelete)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var renderModalDelete = function renderModalDelete() {
+  var modalDelete = document.querySelector('.modal-delete');
+  var deleteConfirm = document.getElementById('delete-confirm');
+  var deleteCancel = document.getElementById('delete-cancel');
+  document.addEventListener("openModalDelete", function (event) {
+    deleteConfirm.dataset.url = event.detail.url;
+    modalDelete.classList.add('active');
+  });
+  deleteCancel.addEventListener("click", function () {
+    modalDelete.classList.remove('active');
+    document.dispatchEvent(new CustomEvent('stopOverlay'));
+  });
+  deleteConfirm.addEventListener("click", function () {
+    var url = deleteConfirm.dataset.url;
+    console.log(url);
+
+    var sendDeleteRequest = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return fetch(url, {
+                  headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                  },
+                  method: 'DELETE'
+                }).then(function (response) {
+                  if (!response.ok) throw response;
+                  return response.json();
+                }).then(function (json) {
+                  if (json.table) {
+                    document.dispatchEvent(new CustomEvent('loadTable', {
+                      detail: {
+                        table: json.table
+                      }
+                    }));
+                  }
+
+                  document.dispatchEvent(new CustomEvent('loadForm', {
+                    detail: {
+                      form: json.form
+                    }
+                  }));
+                  modalDelete.classList.remove('modal-active');
+                  document.dispatchEvent(new CustomEvent('renderFormModules'));
+                  document.dispatchEvent(new CustomEvent('renderTableModules')); // document.dispatchEvent(new CustomEvent('stopWait'));
+
+                  // document.dispatchEvent(new CustomEvent('stopWait'));
+                  document.dispatchEvent(new CustomEvent('message', {
+                    detail: {
+                      message: json.message,
+                      type: 'success'
+                    }
+                  }));
+                })["catch"](function (error) {
+                  // document.dispatchEvent(new CustomEvent('stopWait'));
+                  if (error.status == '500') {
+                    console.log(error);
+                  }
+
+                  ;
+                });
+
+              case 2:
+                response = _context.sent;
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function sendDeleteRequest() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
+    sendDeleteRequest();
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/desktop/overlay.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/desktop/overlay.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderOverlay": () => (/* binding */ renderOverlay)
+/* harmony export */ });
+var renderOverlay = function renderOverlay() {
+  var overlay = document.querySelector('.overlay');
+  document.addEventListener("startOverlay", function (event) {
+    overlay.classList.add('active');
+  }, {
+    once: true
+  });
+  document.addEventListener("stopOverlay", function (event) {
+    overlay.classList.remove('active');
+  }, {
+    once: true
   });
 };
 
@@ -2626,8 +2764,7 @@ var renderTable = function renderTable() {
               while (1) {
                 switch (_context.prev = _context.next) {
                   case 0:
-                    document.dispatchEvent(new CustomEvent('startWait'));
-                    _context.next = 3;
+                    _context.next = 2;
                     return fetch(url, {
                       headers: {
                         'X-Requested-With': 'XMLHttpRequest'
@@ -2642,11 +2779,9 @@ var renderTable = function renderTable() {
                           form: json.form
                         }
                       }));
-                      document.dispatchEvent(new CustomEvent('renderFormModules'));
-                      document.dispatchEvent(new CustomEvent('stopWait'));
+                      document.dispatchEvent(new CustomEvent('renderFormModules')); // document.dispatchEvent(new CustomEvent('stopWait'));
                     })["catch"](function (error) {
-                      document.dispatchEvent(new CustomEvent('stopWait'));
-
+                      // document.dispatchEvent(new CustomEvent('stopWait'));
                       if (error.status == '500') {
                         console.log(error);
                       }
@@ -2654,10 +2789,10 @@ var renderTable = function renderTable() {
                       ;
                     });
 
-                  case 3:
+                  case 2:
                     response = _context.sent;
 
-                  case 4:
+                  case 3:
                   case "end":
                     return _context.stop();
                 }
@@ -21002,7 +21137,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _desktop_form_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./desktop/form.js */ "./resources/js/admin/desktop/form.js");
 /* harmony import */ var _desktop_table_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./desktop/table.js */ "./resources/js/admin/desktop/table.js");
 /* harmony import */ var _desktop_ckeditor_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./desktop/ckeditor.js */ "./resources/js/admin/desktop/ckeditor.js");
+/* harmony import */ var _desktop_modalDelete_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./desktop/modalDelete.js */ "./resources/js/admin/desktop/modalDelete.js");
+/* harmony import */ var _desktop_overlay_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./desktop/overlay.js */ "./resources/js/admin/desktop/overlay.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
+
+
 
 
 
@@ -21018,6 +21157,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/admin/bootstrap.js");
 (0,_desktop_form_js__WEBPACK_IMPORTED_MODULE_3__.renderForm)();
 (0,_desktop_table_js__WEBPACK_IMPORTED_MODULE_4__.renderTable)();
 (0,_desktop_ckeditor_js__WEBPACK_IMPORTED_MODULE_5__.renderCkeditor)();
+(0,_desktop_modalDelete_js__WEBPACK_IMPORTED_MODULE_6__.renderModalDelete)();
+(0,_desktop_overlay_js__WEBPACK_IMPORTED_MODULE_7__.renderOverlay)();
 })();
 
 /******/ })()

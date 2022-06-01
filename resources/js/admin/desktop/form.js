@@ -7,6 +7,13 @@ export let renderForm = () => {
     let createButton = document.querySelector('.create-button');
     let forms = document.querySelectorAll('.admin-form');
 
+
+    document.addEventListener("loadForm",( event =>{
+        
+        console.log(event.detail.form);
+        formContainer.innerHTML = event.detail.form;
+    }));
+
     document.addEventListener("renderFormModules",( event =>{
         renderForm();
     }), {once: true});
@@ -147,7 +154,6 @@ export let renderForm = () => {
                         }));
 
                         document.dispatchEvent(new CustomEvent('renderFormModules'));
-                        document.dispatchEvent(new CustomEvent('renderTableModules'));
                         // document.dispatchEvent(new CustomEvent('stopWait'));
                         // document.dispatchEvent(new CustomEvent('stopOverlay'));
 

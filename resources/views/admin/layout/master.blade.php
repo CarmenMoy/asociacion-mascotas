@@ -15,6 +15,8 @@
 
     <body>
         @include("admin.layout.partials.header")
+        @include("admin.components.modal_delete")
+        @include("admin.components.overlay")
    
         <div class="wrapper" id="app">
             <div class="partial main-content" id="main-content">

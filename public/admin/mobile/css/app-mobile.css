@@ -377,6 +377,33 @@ ol, ul, nav {
   padding-left: 0;
 }
 
+h1 {
+  font-size: 3em;
+  font-weight: 600;
+  font-family: "Ubuntu";
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 600;
+  font-family: "Ubuntu";
+}
+
+li, span, p, input, textarea {
+  font-weight: 400;
+  font-family: "Ubuntu";
+}
+
+h3, h4, h5, label {
+  font-size: 1em;
+  font-family: "Ubuntu Condensed";
+}
+
+h6 {
+  font-size: 2em;
+  font-weight: 1500;
+}
+
 main {
   margin: 0;
   padding: 0;

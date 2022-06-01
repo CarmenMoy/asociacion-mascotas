@@ -59,6 +59,35 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'users_show',
         ]
     ]);
+
+    Route::resource('faqs', 'App\Http\Controllers\Admin\FaqController', [
+        'parameters' => [
+            'faqs' => 'faq', 
+        ],
+        'names' => [
+            'index' => 'faqs',
+            'create' => 'faqs_create',
+            'edit' => 'faqs_edit',
+            'store' => 'faqs_store',
+            'destroy' => 'faqs_destroy',
+            'show' => 'faqs_show',
+        ]
+    ]);
+
+    
+    Route::resource('cats', 'App\Http\Controllers\Admin\CatController', [
+        'parameters' => [
+            'cats' => 'cat', 
+        ],
+        'names' => [
+            'index' => 'cats',
+            'create' => 'cats_create',
+            'edit' => 'cats_edit',
+            'store' => 'cats_store',
+            'destroy' => 'cats_destroy',
+            'show' => 'cats_show',
+        ]
+    ]);
 });
 
 Route::get('/', function () {

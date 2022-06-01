@@ -4,10 +4,11 @@
 @import "helpers/mixins";
 @import "base/normalize";
 @import "base/contents";
+@import "base/typography";
+@import "components/desktop/modal-delete";
+@import "components/desktop/overlay";
 @import "layout/desktop/master";
 @import "layout/desktop/header";
 @import "layout/desktop/columns";
-@import "pages/usuarios/desktop/usuarios";
+@import "pages/panel/desktop/panel";
 
-
-// ---------------------------------------------------------------

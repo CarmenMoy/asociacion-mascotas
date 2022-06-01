@@ -4,9 +4,8 @@
 @import "helpers/mixins";
 @import "base/contents";
 @import "base/normalize";
+@import "base/typography";
 @import "layout/mobile/master";
 @import "layout/mobile/header";
 @import "layout/mobile/columns";
-@import "pages/usuarios/mobile/usuarios";
-
-// -------------------------------------------------------------
+@import "pages/panel/mobile/panel";

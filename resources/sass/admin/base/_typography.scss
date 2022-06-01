@@ -1,0 +1,28 @@
+h1{
+    font-size: 3em;
+    font-weight: 600;
+    font-family: $font-stack;
+}
+
+h2{
+    font-size: 2em;
+    font-weight: 600;
+    font-family: $font-stack;
+}
+
+li, span, p, input, textarea{
+    font-weight: 400;
+    font-family: $font-stack;
+}
+
+h3,h4,h5,label{
+    font-size: 1em;
+    font-family: $font-stack-condensed;
+}
+
+
+h6{
+    font-size: 2em;
+    font-weight: 1500;
+}
+

@@ -1,24 +1,24 @@
 @extends('admin.layout.table_form')
 
 @section('table')
-    @if(isset($users))
-        @foreach($users as $user_element)
+
+    @if(isset($faqs))
+        @foreach($faqs as $faq_element)
             <div class="table-row swipe-element">
                 <div class="table-field-container swipe-front">
-                    <div class="table-field"><p><span>Id USUARIO:</span>{{$user_element->id}}</p></div>
-                    <div class="table-field"><p><span>Nombre:</span> {{$user_element->name}}</p></div>
-                    <div class="table-field"><p><span>Email:</span> {{$user_element->email}}</p></div>
-                    <div class="table-field"><p><span>Creado el:</span>{{$user_element->created_at}}</p></div>
+                    <div class="table-field"><p><span>Id FAQ:</span>{{$faq_element->id}}</p></div>
+                    <div class="table-field"><p><span>FAQ:</span> {{$faq_element->faq}}</p></div>
+                    <div class="table-field"><p><span>Creado el:</span>{{$faq_element->created_at}}</p></div>
                 </div>
 
                 <div class="table-icons-container swipe-back">
-                    <div class="table-icons edit-button right-swipe" data-url="{{route('users_edit', ['user' => $user_element->id])}}">
+                    <div class="table-icons edit-button right-swipe" data-url="{{route('faqs_edit', ['faq' => $faq_element->id])}}">
                         <svg viewBox="0 0 24 24">
                             <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
                         </svg>
                     </div>
 
-                    <div class="table-icons delete-button left-swipe" data-url="{{route('users_destroy', ['user' => $user_element->id])}}">
+                    <div class="table-icons delete-button left-swipe" data-url="{{route('faqs_destroy', ['faq' => $faq_element->id])}}">
                         <svg viewBox="0 0 24 24">
                             <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
                         </svg>
@@ -30,7 +30,7 @@
 @endsection
             
 @section('form')
-    @if(isset($user))
+    @if(isset($faq))
         <div class="tabs-container">
             <ul class="tabs" id="tabs">
                 <li class="tabs-item active" data-tab="contenido">Contenido</li>
@@ -45,7 +45,7 @@
                     </svg>
                 </div>
             
-                <div class="create-button" data-url="{{route('users_create')}}">
+                <div class="create-button" data-url="{{route('faqs_create')}}">
                     <svg viewBox="0 0 24 24">
                         <path d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
                     </svg>
@@ -62,19 +62,19 @@
 
             <div class="content-item active" data-content="contenido">
 
-                <form class="form-contact admin-form" action="{{route('users_store')}}" id="contact-form">
+                <form class="form-contact admin-form" action="{{route('faqs_store')}}" id="contact-form">
 
-                    <input type="hidden" name="id" value="{{isset($user->id) ? $user->id : ''}}">
+                    <input type="hidden" name="id" value="{{isset($faq->id) ? $faq->id : ''}}">
 
                     <div class="desktop-dos-columnas">
                         <div class="columna">
                             <div class="contact-form-element">
                                 <div class="contact-form-label">
-                                    <label for="name">Nombre:</label>
+                                    <label for="question">Pregunta:</label>
                                 </div>
         
                                 <div class="contact-form-input">
-                                    <input type="text" name="name" value="{{isset($user->name) ? $user->name : ''}}">
+                                    <input type="textarea" name="question" value="{{isset($faq->question) ? $faq->question : ''}}">
                                 </div>
                             </div>
                         </div>
@@ -82,54 +82,15 @@
                         <div class="columna">
                             <div class="contact-form-element">
                                 <div class="contact-form-label">
-                                    <label for="email">Correo:</label>
+                                    <label for="answer">Respuesta:</label>
                                 </div>
 
                                 <div class="contact-form-input">
-                                    <input type="email" name="email" value="{{isset($user->email) ? $user->email : ''}}">
+                                    <input type="textarea" name="answer" value="{{isset($faq->answer) ? $faq->answer : ''}}">
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="desktop-dos-columnas">
-                        <div class="columna">
-                            <div class="contact-form-element">
-                                <div class="contact-form-label">
-                                    <label for="password">Contraseña:</label>
-                                </div>
-
-                                <div class="contact-form-input">
-                                    <input type="password" name="password">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="columna">
-                            <div class="contact-form-element">
-                                <div class="contact-form-label">
-                                    <label for="password">Repite contraseña:</label>
-                                </div>
-
-                                <div class="contact-form-input">
-                                    <input type="password" name="password_confirmation">
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-
-                    {{-- <div class="columna-textarea">
-                        <div class="contact-form-element">
-                            <div class="contact-form-label">
-                                <label for="comentario">Algún comentario?</label>
-                            </div>
-
-                            <div class="contact-form-input">
-                                <textarea name="comentario" class="ckeditor"></textarea>
-                            </div>
-                        </div>
-                    </div> --}}
                 </form>
             </div>
 

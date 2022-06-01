@@ -10,7 +10,7 @@
 <script>
     WebFont.load({
         google: {
-            families: ['Dancing+Script:700,700i', 'Ubuntu+Condensed:400']
+            families: ['Ubuntu:700,700i', 'Ubuntu+Condensed:400']
         }
     });        
 </script>
