@@ -88,15 +88,44 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'cats_show',
         ]
     ]);
+
+    Route::resource('categories', 'App\Http\Controllers\Admin\CategoryController', [
+        'parameters' => [
+            'categories' => 'category', 
+        ],
+        'names' => [
+            'index' => 'categories',
+            'create' => 'categories_create',
+            'edit' => 'categories_edit',
+            'store' => 'categories_store',
+            'destroy' => 'categories_destroy',
+            'show' => 'categories_show',
+        ]
+    ]);
+
+    Route::resource('customers', 'App\Http\Controllers\Admin\CustomerController', [
+        'parameters' => [
+            'customers' => 'customer', 
+        ],
+        'names' => [
+            'index' => 'customers',
+            'create' => 'customers_create',
+            'edit' => 'customers_edit',
+            'store' => 'customers_store',
+            'destroy' => 'customers_destroy',
+            'show' => 'customers_show',
+        ]
+    ]);
 });
 
 Route::get('/', function () {
     return view('front.pages.home.index');
 });
 
-Route::get('/contacto', function () {
-    return view('front.pages.contacto.index');
-});
+Route::get('contacto', 'App\Http\Controllers\Front\ContactController@index')->name('contact_front');
+Route::post('contacto', 'App\Http\Controllers\Front\ContactController@store')->name('contact_form_front');
+Route::get('contacto', 'App\Http\Controllers\Front\BusinessInformationController@index')->name('businessInformation_front');
+
 
 Route::get('/cesta', function () {
     return view('front.pages.cesta.index');

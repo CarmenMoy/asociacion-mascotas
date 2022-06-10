@@ -5,25 +5,25 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
-use App\Models\Cat;
-use App\Http\Requests\Admin\CatRequest;
+use App\Models\Category;
+use App\Http\Requests\Admin\CategoryRequest;
 
 
-class CatController extends Controller
+class CategoryController extends Controller
 {
-    protected $cat;
+    protected $category;
 
-    public function __construct(Cat $cat)
+    public function __construct(Category $category)
     {       
-        $this->cat = $cat;
+        $this->category = $category;
     }
     
     public function index()
     {
 
-        $view = View::make('admin.pages.cats.index')
-                ->with('cat', $this->cat)
-                ->with('cats', $this->cat->where('active', 1)->get());
+        $view = View::make('admin.pages.categories.index')
+                ->with('category', $this->category)
+                ->with('categories', $this->category->where('active', 1)->get());
 
         if(request()->ajax()) {
             
@@ -41,8 +41,8 @@ class CatController extends Controller
     public function create()
     {
 
-       $view = View::make('admin.pages.cats.index')
-        ->with('cat', $this->cat)
+       $view = View::make('admin.pages.categories.index')
+        ->with('category', $this->category)
         ->renderSections();
 
         return response()->json([
@@ -50,24 +50,20 @@ class CatController extends Controller
         ]);
     }
 
-    public function store(CatRequest $request)
+    public function store(CategoryRequest $request)
     {            
 
-        $cat = $this->cat->updateOrCreate([
+        $category = $this->category->updateOrCreate([
             'id' => request('id')],[
             'name' => request('name'),
-            'sex' => request('sex'),
-            'category' => request('category'),
-            'years' => request('years'),
             'description' => request('description'),
-            'vaccinated' => request('vaccinated'),
-            'sterilized' => request('sterilized'),
             'active' => 1,
+            'visible' => request('visible') == "true" ? 1 : 0 ,
         ]);
-
-        $view = View::make('admin.pages.cats.index')
-        ->with('cats', $this->cat->where('active', 1)->get())
-        ->with('cat', $this->cat)
+      
+        $view = View::make('admin.pages.categories.index')
+        ->with('categories', $this->category->where('active', 1)->get())
+        ->with('category', $this->category)
         ->renderSections();        
 
         return response()->json([
@@ -76,11 +72,11 @@ class CatController extends Controller
         ]);
     }
 
-    public function edit(Cat $cat)
+    public function edit(Category $category)
     {
-        $view = View::make('admin.pages.cats.index')
-        ->with('cat', $cat)
-        ->with('cats', $this->cat->where('active', 1)->get());   
+        $view = View::make('admin.pages.categories.index')
+        ->with('category', $category)
+        ->with('categories', $this->category->where('active', 1)->get());   
 
         if(request()->ajax()) {
 
@@ -94,18 +90,18 @@ class CatController extends Controller
         return $view;
     }
 
-    public function show(Cat $cat){
+    public function show(Category $category){
 
     }
 
-    public function destroy(Cat $cat)
+    public function destroy(Category $category)
     {
-        $cat->active = 0;
-        $cat->save();
+        $category->active = 0;
+        $category->save();
 
-        $view = View::make('admin.pages.cats.index')
-            ->with('cat', $this->cat)
-            ->with('cats', $this->cat->where('active', 1)->get())
+        $view = View::make('admin.pages.categories.index')
+            ->with('category', $this->category)
+            ->with('categories', $this->category->where('active', 1)->get())
             ->renderSections();
         
         return response()->json([
